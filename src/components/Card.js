@@ -6,9 +6,8 @@ import React from 'react'
             <img src={props.elemento.picture} alt="" className='w-full' />
             <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">
-                    {props.elemento.name.first}
+                    <p>{props.elemento.name.last}</p>
                 </div>
-
             </div>            
         </div>
         )
