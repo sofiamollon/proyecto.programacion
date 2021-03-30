@@ -2,6 +2,8 @@
 import Header from "./components/Header"
 import Card from "./components/Card"
 
+const Tarjeta = [{name:{title:"Sr", first:"Sofia", last:"Mollon"}, gender:"female", picture:"https://i.blogs.es/4f0662/consejos-foto-movil-01/450_1000.jpg", location:{street:"Av. Santa Fe", city:"CABA", state:"Buenos Aires", postcode:"1234"}, email:"smollon@udesa.edu.ar", phone:"112233445566", registered:{date:"30/03/2021"}, nat:"IE", dob:{date:"05/11/1999", age:21}}]
+
 function App() {
   return (
     <div className="App">
@@ -9,16 +11,13 @@ function App() {
       <div className='container mx-auto'>
 
         <div className="my-5 flex flex-wrap -mx-2">
-          <div className="w-full sm:w-1/2 lg:w-1/3 px-2 my-2">
-              <Card photo='https://picsum.photos/800/600' />
-          </div>
-          <div className="w-full sm:w-1/2 lg:w-1/3 px-2 my-2">
-              <Card photo='https://picsum.photos/800/600' />
-          </div>
-          <div className="w-full sm:w-1/2 lg:w-1/3 px-2 my-2">
-              <Card photo='https://picsum.photos/800/600' />
-          </div>
+          {Tarjeta.map(function(item, idx){
+            return(
+              <Card key={idx} elemento={item}/>
+            )
+          })}
         </div>
+
       </div>
 
     </div>
