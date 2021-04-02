@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+* {
+  margin: 0;
+}
 /**
 Use a more readable tab size (opinionated).
 */
@@ -21,6 +24,7 @@ Use a more readable tab size (opinionated).
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  height: 100%;
 }
 
 /*
@@ -34,6 +38,7 @@ Remove the margin in all browsers.
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 /**
@@ -311,6 +316,10 @@ figure,
 p,
 pre {
   margin: 0;
+}
+
+h3 {
+  text-align: center;
 }
 
 button {
@@ -671,6 +680,28 @@ img {
 }
  
 /* FIN CSS TARJETAS */
+
+/* FOOTER */
+
+.footer {
+ background-color: #3b82f6;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -100px;
+}
+
+.footer, .push {
+  height: 100px;
+  
+}
+
+
+
+
+/* FIN FOOTER */
 
 @media (min-width: 640px) {
   .container {

@@ -7,9 +7,11 @@ const Tarjeta = [{name:{title:"Sr", first:"Sofia", last:"Mollón"}, gender:"fema
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <div className='container mx-auto'>
+    <body>
+    <div class="wrapper">
+      <div className="App">
+        <Header/>
+        <div className='container mx-auto'>
 
         <div className="my-5 flex flex-wrap -mx-2">
           {Tarjeta.map(function(item, idx){
@@ -17,14 +19,20 @@ function App() {
               <Card key={idx} elemento={item}/>
             )
           })}
-
+        <div class="push"></div>
         </div>
 
       </div>
+          <div class="footer">  
 
       <Footer/>
+        
+        </div>
 
     </div>
+
+    </div>
+    </body>
   );
 }
 
