@@ -17,6 +17,7 @@ function App() {
               <Card key={idx} elemento={item}/>
             )
           })}
+
         </div>
 
       </div>
