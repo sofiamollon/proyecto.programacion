@@ -685,7 +685,15 @@ img {
 
 .footer {
  background-color: #3b82f6;
+ width: 100%;  
+ background: #111;
+ color: #fff;
+ width: 100%;
+ text-align: center;
+ padding: 1em;
+ align-self: flex-end; 
 }
+
 .wrapper {
   min-height: 100%;
   height: auto !important;

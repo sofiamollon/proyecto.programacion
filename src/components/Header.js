@@ -24,9 +24,8 @@ function Header(){
                             <div class="flex space-x-4">
                                 {/* <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" --> */}
                                 {/* HAY QUE REVISAR LOS HREF */}
-                                <a href="/dashboard" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-                                <a href="/team" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-                                <a href="/project" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                                <a href="/dashboard" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
+                                <a href="/team" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tarjetas</a>
                             </div>
                         </div>
                     </div>

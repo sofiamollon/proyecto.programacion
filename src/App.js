@@ -23,15 +23,18 @@ function App() {
         </div>
 
       </div>
-          <div class="footer">  
+        
+      <div class="footer">  
+         <Footer/>
 
-      <Footer/>
+        </div>
+      
         
         </div>
 
     </div>
-
-    </div>
+       
+     
     </body>
   );
 }
