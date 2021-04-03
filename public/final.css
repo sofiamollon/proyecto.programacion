@@ -684,11 +684,9 @@ img {
 /* FOOTER */
 
 .footer {
- background-color: #3b82f6;
+
+ background: rgba(31, 41, 55, var(--tw-bg-opacity));/* no me toma el color no se porque */
  width: 100%;  
- background: #111;
- color: #fff;
- width: 100%;
  text-align: center;
  padding: 1em;
  align-self: flex-end; 
