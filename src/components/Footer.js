@@ -1,13 +1,13 @@
-function Footer(){
-    return(
+import React, { Component } from "react";
 
-        <div>
-       
-        <h3>Sofía Mollón - Candela Flores - Milagros Scipioni</h3>
-
-        </div>
-      
-    )
+class Footer extends Component{
+    render(){
+        return(
+            <div>       
+                <h3>Sofía Mollón - Candela Flores - Milagros Scipioni</h3>
+            </div>
+        )
+    }
 }
     
 export default Footer
