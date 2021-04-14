@@ -11702,11 +11702,6 @@ img {
   line-height: 1.75rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -184353,6 +184348,7 @@ img {
   width: 30%;
   height: 28em;
   border: 1px solid #f1f1f1;
+  text-align: center;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -184399,3 +184395,21 @@ img {
 .flip-card-back p{
   margin-top:2%
 }
+
+.delete-card{
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.delete-button{
+  position: absolute;
+  top: 7%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: RGBA(1, 0, 0, 0.2);
+  cursor: pointer;
+  border-radius: 20px;
+}
+
