@@ -14,14 +14,14 @@ import React, { Component } from "react";
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                     </svg>
                                 </button>
-                                <img src={this.props.elemento.picture} alt="" className='w-full' />
+                                
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">
                                     <h2>Apellido: {this.props.elemento.name.last}</h2> 
                                     <h2> Nombre: {this.props.elemento.name.first}</h2>
                                     <h3> Email: {this.props.elemento.email}</h3>
-                                    <h4> Fecha de nacimiento: {this.props.elemento.dob.date} </h4>
-                                    <h1>Edad: ({this.props.elemento.dob.age})</h1>  
+                                    <h4> Fecha de nacimiento: {this.props.elemento.dob.date} </h4> <h1>({this.props.elemento.dob.age})</h1>                                  
+                                    <img src={this.props.elemento.picture.large} alt="" className='w-full' />
                                     <button style= {{borderRadius:"40px", width:"11%",marginLeft:"45%",height:"38px"}} type="button" 
                                     className="-mr-1 flex rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2">
                                     <span className="sr-only"></span>
@@ -29,8 +29,7 @@ import React, { Component } from "react";
                                             <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                         </svg>
                                     </button>
-                                </div>
-                                
+                                </div>                                
                             </div>
                         </div> 
                         {/* <div className="flip-card-back">

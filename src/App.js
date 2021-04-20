@@ -4,16 +4,12 @@ import Card from "./components/Card"
 import React, {Component} from "react";
 
 
-
-const Tarjeta = [{name:{title:"Sr", first:"Sofia", last:"Mollón"}, id:"0", gender:"female", picture:"https://i.blogs.es/4f0662/consejos-foto-movil-01/450_1000.jpg", location:{street:{number:1305, name:"Av. Santa Fe"}, city:"CABA", state:"Buenos Aires", postcode:"1234", country: "Argentina"}, email:"smollon@udesa.edu.ar", phone:"112233445566", registered:{date:"30/03/2021"}, nat:"IE", dob:{date:"05/11/1999", age:21}}]
-
 export default class App extends Component {
 
   constructor(){
     super();
     this.state = {
-      arrayTarjeta: Tarjeta,
-      arrayModificar: [],
+      arrayTarjeta: [],
     }
   };
 
@@ -23,8 +19,7 @@ componentDidMount(){
   .then((resultado)=>{
     //console.log(resultado)
     this.setState({
-      arrayModificar: resultado.results});
-      console.log(this.state.arrayModificar);
+      arrayTarjeta: resultado.results});
     
   })
   .catch((e)=> console.log(e))
@@ -52,8 +47,8 @@ componentDidMount(){
 
             <div className="my-5 flex flex-wrap -mx-2">
 
-              {this.state.arrayTarjeta.map((item, idx) => {
-                return <Card key = {idx} elemento = {item} onDelete = {this.borrarTarjeta.bind(this)}/>
+              {this.state.arrayTarjeta.map((item) => {
+                return <Card key = {item.id} elemento = {item} onDelete = {this.borrarTarjeta.bind(this)}/>
               })}
 
               <div class="push">
