@@ -678,6 +678,14 @@ img {
   line-height: 1.5;
   margin-bottom: 1.25rem;
 }
+
+.w-full { /* cambia el tamaño de la imagen */
+  width: 75%;
+  display: block;
+  margin: auto;
+  border: none;
+  border-radius: 6px 6px;
+}
  
 /* FIN CSS TARJETAS */
 
@@ -27252,10 +27260,6 @@ img {
 
 .w-11\/12 {
   width: 91.666667%;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .w-screen {
@@ -184350,6 +184354,7 @@ img {
   border: 1px solid #f1f1f1;
   text-align: center;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  margin-bottom: 20px;
 }
 
 /* This container is needed to position the front and back side */
@@ -184400,6 +184405,9 @@ img {
   position: relative;
   width: 100%;
   max-width: 400px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 25px;
 }
 
 .delete-button{
