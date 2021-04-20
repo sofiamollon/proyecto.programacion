@@ -40,8 +40,7 @@ import React, { Component } from "react";
                             <p>Código postal: {this.props.elemento.location.postcode}</p>
                             <p>Fecha de Registro: {this.props.elemento.registered.date}</p>
                             <p>Teléfono: {this.props.elemento.phone}</p>
-                        </div>  */}
-                    {/* </li> */}
+                        </div> */}
                 </ul>           
             )
         }
