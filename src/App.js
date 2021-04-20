@@ -13,6 +13,19 @@ export default class App extends Component {
     }
   };
 
+
+  filtrarTarjeta (idTarjeta) {
+    const filtroTarjeta = this.state.arrayTarjeta.filter(function(tarjeta) {
+      return tarjeta.id !== idTarjeta /*aca tendria que ir la operacion de comparacion*/
+    }) 
+    this.setState ({
+      
+    })
+  }
+  
+  
+  ;
+
 componentDidMount(){
   fetch("https://randomuser.me/api/?results=21")
   .then(r => r.json())
@@ -29,13 +42,14 @@ componentDidMount(){
   borrarTarjeta(idTarjeta){
     console.log("El id de la tarjeta a eliminar es: " + idTarjeta);
     let nuevaTarjeta = this.state.arrayTarjeta.filter((tarjeta) => {
-      return tarjeta.id !== idTarjeta
+      return tarjeta.id !== idTarjeta 
     })
     this.setState({
       arrayTarjeta: nuevaTarjeta
     })
     console.log(nuevaTarjeta);
   };
+
 
   render(){
     return (

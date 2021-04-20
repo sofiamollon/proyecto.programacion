@@ -687,6 +687,9 @@ img {
   border-radius: 6px 6px;
 }
  
+.my-5 .flex .flex-wrap .-mx-2 {
+  justify-content: center;
+}
 /* FIN CSS TARJETAS */
 
 /* FOOTER */
@@ -10971,6 +10974,7 @@ img {
 .flex {
   display: -webkit-flex;
   display: flex;
+  justify-content: center;
 }
 
 .inline-flex {
