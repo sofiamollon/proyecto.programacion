@@ -3,7 +3,9 @@ import React, { Component } from "react";
     class Card extends Component{
 
         render(){
+
             return (
+                <React.Fragment>  
                 <ul class="cards flip-card"> 
                     <li className=" flip-card-inner">
                         <div className='card flip-card-front' >     
@@ -22,7 +24,7 @@ import React, { Component } from "react";
                             onClick = {this.props.onDelete.bind(this, this.props.elemento.id)}>
                                 <span className="sr-only">Dismiss</span>
                                 <svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                             <p>Calle y número: {this.props.elemento.location.street.name} N˚{this.props.elemento.location.street.number}</p>
@@ -31,9 +33,11 @@ import React, { Component } from "react";
                             <p>Código postal: {this.props.elemento.location.postcode}</p>
                             <p>Fecha de Registro: {this.props.elemento.registered.date}</p>
                             <p>Teléfono: {this.props.elemento.phone}</p>
-                        </div>
+                        </div>                       
                     </li>
-                </ul>           
+                </ul>                
+
+              </React.Fragment>       
             )
         }
     }

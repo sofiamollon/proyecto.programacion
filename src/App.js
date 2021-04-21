@@ -10,7 +10,7 @@ export default class App extends Component {
     super();
     this.state = {
       arrayTarjeta: [],
-      search: [],
+      search: " ",
     }
   };
 
@@ -28,7 +28,6 @@ componentDidMount(){
 
 
   borrarTarjeta(idTarjeta){
-    console.log("El id de la tarjeta a eliminar es: " + idTarjeta);
     let nuevaTarjeta = this.state.arrayTarjeta.filter((tarjeta) => {
       return tarjeta.id !== idTarjeta 
     })
@@ -47,25 +46,15 @@ componentDidMount(){
   })
     .catch((e)=> console.log(e))
   }
-
-  actualizarBusqueda (evento) {
-    this.setState ({search: evento.target.value.substr(0,20)});
-  }
-
-  filtrarTarjeta (nombreUsuario) { /* en nombreUsuario tendria que ingresar lo que filtro el usuario */  
-    const contactosFiltrados = this.state.arrayTarjeta.filter (
-      (tarjeta) => {
-        return tarjeta.name.first.toLowerCase().indexOf(this.state.search) !== -1; 
-      })
-      console.log(contactosFiltrados)
-  /*  const contactosFiltrados = this.state.arrayTarjeta.filter(function(tarjeta) {
-      return  tarjeta.name.first === nombreUsuario/*aca tendria que ir la operacion de comparacion*/
-  /*  }) 
-    this.setState ({
-          arrayTarjeta: contactosFiltrados
+  
+  filtrarTarjetas(nombreUsuarios) {
+    let nombresFiltrados = this.state.arrayTarjeta.filter ((usuario) => {
+      return usuario.name.first.toLowerCase() === nombreUsuarios.toLowerCase()
     })
-    
-    console.log(contactosFiltrados) */ 
+    this.setState ({
+      arrayTarjeta: nombresFiltrados
+    })
+    console.log(nombresFiltrados);
   }
 
   ordenarTarjetas(){
@@ -109,27 +98,26 @@ componentDidMount(){
 
               <div className = "filtrarTarjetas" style={{width: "100%"}}> 
                  <input type="text" 
-                 className="filtroUsuario" placeholder="Buscar... " 
-                 value = {this.state.search}
-                 onChange = {this.actualizarBusqueda.bind(this)}/>
+                 className="nombreUsuario" placeholder="Insertar nombre de usuarios"/> 
+                 <button onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                  Buscar 
+                 </button>
+                
               </div>
               </div>
               <button style={{width:"20%", backgroundColor:"white"}} onClick={this.ordenarTarjetas.bind(this)}>orden ascendente por nombre</button>
 
-              <div class="push">
-                
               </div>
+
             </div>
+            
+            <div className="footer">  
+              <Footer/>
 
+            </div>          
           </div>
-          
-          <div class="footer">  
-            <Footer/>
 
-          </div>          
         </div>
-
-      </div>
         
       
       </body>
