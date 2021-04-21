@@ -61,7 +61,7 @@ componentDidMount(){
     return (
       <body>
        
-      <div class="wrapper">
+      <div className="wrapper">
       
         <div className="App">
         <Header/>
@@ -81,16 +81,15 @@ componentDidMount(){
                 <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
                   Añadir
                 </button>
-              <br/>
+                <br/>
 
-              <div className = "filtrarTarjetas" style={{width: "100%"}}> 
-                 <input type="text" 
-                 className="nombreUsuario" placeholder="Insertar nombre de usuarios"/> 
-                 <button onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
-                  Buscar 
-                 </button>
+                <div className = "filtrarTarjetas" style={{width: "100%"}}> 
+                  <input type="text" className="nombreUsuario" placeholder="Insertar nombre de usuarios"/> 
+                  <button onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                    Buscar 
+                  </button>
                 
-              </div>
+                </div>
               </div>
 
               </div>
