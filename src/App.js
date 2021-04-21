@@ -68,6 +68,19 @@ componentDidMount(){
     console.log(contactosFiltrados) */ 
   }
 
+  ordenarTarjetas(){
+    let ordenAsc = this.state.arrayTarjeta.sort(function (a, b) {
+      if (a.name.first > b.name.first) {
+        return 1;
+      }if (a.name.first < b.name.first) {
+        return -1;
+      }
+      return 0;
+    });
+    this.setState({
+      arrayTarjeta: ordenAsc});
+  }
+
   render(){
     return (
       <body>
@@ -92,7 +105,7 @@ componentDidMount(){
                 <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
                   Añadir
                 </button>
-              <br/>
+              <div/>
 
               <div className = "filtrarTarjetas" style={{width: "100%"}}> 
                  <input type="text" 
@@ -101,6 +114,7 @@ componentDidMount(){
                  onChange = {this.actualizarBusqueda.bind(this)}/>
               </div>
               </div>
+              <button style={{width:"20%", backgroundColor:"white"}} onClick={this.ordenarTarjetas.bind(this)}>orden ascendente por nombre</button>
 
               <div class="push">
                 
