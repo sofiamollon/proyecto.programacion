@@ -20,8 +20,7 @@ class Header extends Component{
                         </div>
                         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                             <div class="flex-shrink-0 flex items-center">
-                                <img class="block lg:hidden h-8 w-auto" src="../img/logo.png" alt="Personalia"/>
-                                <img class="hidden lg:block h-8 w-auto" src="../img/personalia.png" alt="Personalia"/>
+                                <img class="hidden lg:block h-8 w-auto" src="../img/logo2.png" alt="Personalia"/>
                             </div>
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex space-x-4">
@@ -65,6 +64,9 @@ class Header extends Component{
                         {/* HAY QUE REVISAR LOS HREF */}
                         <a href="/dashboard" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
                         <a href="/team" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Tarjetas</a>
+                        <button type="button" class="btn btn-light mr-10 shadow-sm" data-toggle="collapse" data-target="#filters">Filtrar <i class="fa fa-filter"></i></button>
+				        <input type="text" class="col-8 border-2 p-2" placeholder="Buscar.." id="search-filter"></input>
+
                     </div>
                 </div>
             </nav>

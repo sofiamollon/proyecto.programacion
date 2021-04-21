@@ -2302,7 +2302,7 @@ img {
 
 .bg-gray-300 {
   --tw-bg-opacity: 1;
-  background-color: rgba(209, 213, 219, var(--tw-bg-opacity));
+  background-color: #A2A1BF;
 }
 
 .bg-gray-400 {
@@ -2322,17 +2322,18 @@ img {
 
 .bg-gray-700 {
   --tw-bg-opacity: 1;
-  background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
+  background-color: #A2A1BF;
+  /*rgba(55, 65, 81, var(--tw-bg-opacity)); */
 }
 
 .bg-gray-800 {
   --tw-bg-opacity: 1;
-  background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+  background-color:  #18078F ;
 }
 
 .bg-gray-900 {
   --tw-bg-opacity: 1;
-  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+  background-color: #A2A1BF ;
 }
 
 .bg-red-50 {

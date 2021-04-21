@@ -14,17 +14,16 @@ export default class App extends Component {
   };
 
 
-  filtrarTarjeta (idTarjeta) {
+  filtrarTarjeta (idTarjeta) { /* en idTarjeta tendria que ingresar lo que filtro el usuario */  
     const filtroTarjeta = this.state.arrayTarjeta.filter(function(tarjeta) {
-      return tarjeta.id !== idTarjeta /*aca tendria que ir la operacion de comparacion*/
+      return  tarjeta.nombre === idTarjeta/*aca tendria que ir la operacion de comparacion*/
     }) 
     this.setState ({
-      
+          arrayTarjeta: filtroTarjeta
     })
   }
   
-  
-  ;
+
 
 componentDidMount(){
   fetch("https://randomuser.me/api/?results=21")
@@ -54,15 +53,21 @@ componentDidMount(){
   render(){
     return (
       <body>
+       
       <div class="wrapper">
+      
         <div className="App">
-          <Header/>
+        <Header/>
           <div className='container mx-auto'>
 
             <div className="my-5 flex flex-wrap -mx-2">
 
               {this.state.arrayTarjeta.map((item) => {
-                return <Card key = {item.id} elemento = {item} onDelete = {this.borrarTarjeta.bind(this)}/>
+                return <Card 
+                key = {item.id} 
+                elemento = {item} 
+                onDelete = {this.borrarTarjeta.bind(this)}
+                onFilter = {this.filtrarTarjeta.bind(this)}/>
               })}
 
               <div class="push">
