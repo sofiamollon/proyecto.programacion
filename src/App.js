@@ -37,6 +37,16 @@ componentDidMount(){
     console.log(nuevaTarjeta);
   };
 
+  agregarTarjetas(cantidadTarjetas){
+    fetch("https://randomuser.me/api/?results=" + cantidadTarjetas)
+    .then(r => r.json())
+    .then((resultado)=>{
+    this.setState({
+      arrayTarjeta: this.state.arrayTarjeta.concat(resultado.results)});
+  })
+    .catch((e)=> console.log(e))
+  }
+
   render(){
     return (
       <body>
@@ -50,6 +60,13 @@ componentDidMount(){
               {this.state.arrayTarjeta.map((item) => {
                 return <Card key = {item.id} elemento = {item} onDelete = {this.borrarTarjeta.bind(this)}/>
               })}
+
+              <div className="agregarTarjetas" style={{width:"100%"}}>
+                <input type="number" className="cantidadTarjetas"  placeholder="Insertar cantidad de usuarios" />
+                <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
+                  Añadir
+                </button>
+              </div>
 
               <div class="push">
                 
