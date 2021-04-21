@@ -57,6 +57,19 @@ componentDidMount(){
     console.log(nombresFiltrados);
   }
 
+  ordenarTarjetas(){
+    let ordenAsc = this.state.arrayTarjeta.sort(function (a, b) {
+      if (a.name.first > b.name.first) {
+        return 1;
+      }if (a.name.first < b.name.first) {
+        return -1;
+      }
+      return 0;
+    });
+    this.setState({
+      arrayTarjeta: ordenAsc});
+  }
+
   render(){
     return (
       <body>
@@ -91,6 +104,7 @@ componentDidMount(){
                 
                 </div>
               </div>
+              <button style={{width:"20%", backgroundColor:"white"}} onClick={this.ordenarTarjetas.bind(this)}>orden ascendente por nombre</button>
 
               </div>
 
