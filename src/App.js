@@ -46,57 +46,52 @@ componentDidMount(){
   })
     .catch((e)=> console.log(e))
   }
-
-  actualizarBusqueda (evento) {
-    this.setState ({search: evento.target.value.substr(0,20)});
-  }
   
-  filtrarTarjeta (nombreUsuario) { /* en nombreUsuario tendria que ingresar lo que filtro el usuario */  
-    let contactosFiltrados = this.state.arrayTarjeta.filter(
-      (tarjeta) => {
-        return tarjeta.name.first.toLowerCase().indexOf(this.state.search.toLowerCase()) === nombreUsuario;
-      }
-    );
-    // const contactosFiltrados = this.state.arrayTarjeta.filter(function(tarjeta) {
-    //   return  tarjeta.name.first === nombreUsuario/*aca tendria que ir la operacion de comparacion*/
-    // }) 
-    this.setState ({
-      arrayTarjeta: contactosFiltrados
+  filtrarTarjetas(nombreUsuarios) {
+    let nombresFiltrados = this.state.arrayTarjeta.filter ((usuario) => {
+      return usuario.name.first.toLowerCase() === nombreUsuarios.toLowerCase()
     })
+    this.setState ({
+      arrayTarjeta: nombresFiltrados
+    })
+    console.log(nombresFiltrados);
   }
 
   render(){
     return (
       <body>
        
-        <div className="wrapper">
-        
-          <div className="App">
-          <Header/>
-            <div className='container mx-auto'>
+      <div class="wrapper">
+      
+        <div className="App">
+        <Header/>
+          <div className='container mx-auto'>
 
-              <div className="my-5 flex flex-wrap -mx-2">
+            <div className="my-5 flex flex-wrap -mx-2">
 
-                {this.state.arrayTarjeta.map((item) => {
-                  return <Card 
-                  key = {item.id} 
-                  elemento = {item}
-                  onDelete = {this.borrarTarjeta.bind(this)}/>
-                })}
+              {this.state.arrayTarjeta.map((item) => {
+                return <Card 
+                key = {item.id} 
+                elemento = {item} 
+                onDelete = {this.borrarTarjeta.bind(this)}/>
+              })}
 
-                <div className="agregarTarjetas" style={{width:"100%"}}>
-                  <input type="number" className="cantidadTarjetas"  placeholder="Insertar cantidad de usuarios"/>
-                  <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
-                      Añadir
-                  </button>
-                  <br/>
+              <div className="agregarTarjetas" style={{width:"100%"}}>
+                <input type="number" className="cantidadTarjetas"  placeholder="Insertar cantidad de usuarios"/>
+                <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
+                  Añadir
+                </button>
+              <br/>
 
-                </div>
-
-                <div className = "filtrarTarjetas" style={{width: "100%"}}> 
-                    <input type="text" className="filtroUsuario" placeholder="Buscar... " value = {this.state.search}
-                    onChange = {this.filtrarTarjeta.bind(this)}/>
-                </div> 
+              <div className = "filtrarTarjetas" style={{width: "100%"}}> 
+                 <input type="text" 
+                 className="nombreUsuario" placeholder="Insertar nombre de usuarios"/> 
+                 <button onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                  Buscar 
+                 </button>
+                
+              </div>
+              </div>
 
               </div>
 
