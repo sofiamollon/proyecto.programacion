@@ -28,8 +28,6 @@ class Header extends Component{
                                     {/* HAY QUE REVISAR LOS HREF */}
                                     <a href="/inicio" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Inicio</a>
                                     <a href="/tarjetas" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Tarjetas</a>
-                                    <button type="button" class="btn btn-light mr-10 shadow-sm" data-toggle="collapse" data-target="#filters">Filtrar <i class="fa fa-filter"></i></button>
-				                    <input type="text" class="col-8 border-2 p-2" placeholder="Buscar.." id="search-filter"></input>
                                 </div>
                             </div>
                         </div>

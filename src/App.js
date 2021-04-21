@@ -10,20 +10,9 @@ export default class App extends Component {
     super();
     this.state = {
       arrayTarjeta: [],
+      search: [],
     }
   };
-
-
-  filtrarTarjeta (idTarjeta) { /* en idTarjeta tendria que ingresar lo que filtro el usuario */  
-    const filtroTarjeta = this.state.arrayTarjeta.filter(function(tarjeta) {
-      return  tarjeta.nombre === idTarjeta/*aca tendria que ir la operacion de comparacion*/
-    }) 
-    this.setState ({
-          arrayTarjeta: filtroTarjeta
-    })
-  }
-  
-
 
 componentDidMount(){
   fetch("https://randomuser.me/api/?results=21")
@@ -59,6 +48,26 @@ componentDidMount(){
     .catch((e)=> console.log(e))
   }
 
+  actualizarBusqueda (evento) {
+    this.setState ({search: evento.target.value.substr(0,20)});
+  }
+
+  filtrarTarjeta (nombreUsuario) { /* en nombreUsuario tendria que ingresar lo que filtro el usuario */  
+    const contactosFiltrados = this.state.arrayTarjeta.filter (
+      (tarjeta) => {
+        return tarjeta.name.first.toLowerCase().indexOf(this.state.search) !== -1; 
+      })
+      console.log(contactosFiltrados)
+  /*  const contactosFiltrados = this.state.arrayTarjeta.filter(function(tarjeta) {
+      return  tarjeta.name.first === nombreUsuario/*aca tendria que ir la operacion de comparacion*/
+  /*  }) 
+    this.setState ({
+          arrayTarjeta: contactosFiltrados
+    })
+    
+    console.log(contactosFiltrados) */ 
+  }
+
   render(){
     return (
       <body>
@@ -75,15 +84,22 @@ componentDidMount(){
                 return <Card 
                 key = {item.id} 
                 elemento = {item} 
-                onDelete = {this.borrarTarjeta.bind(this)}
-                onFilter = {this.filtrarTarjeta.bind(this)}/>
+                onDelete = {this.borrarTarjeta.bind(this)}/>
               })}
 
               <div className="agregarTarjetas" style={{width:"100%"}}>
-                <input type="number" className="cantidadTarjetas"  placeholder="Insertar cantidad de usuarios" />
+                <input type="number" className="cantidadTarjetas"  placeholder="Insertar cantidad de usuarios"/>
                 <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
                   Añadir
                 </button>
+              <br/>
+
+              <div className = "filtrarTarjetas" style={{width: "100%"}}> 
+                 <input type="text" 
+                 className="filtroUsuario" placeholder="Buscar... " 
+                 value = {this.state.search}
+                 onChange = {this.actualizarBusqueda.bind(this)}/>
+              </div>
               </div>
 
               <div class="push">
