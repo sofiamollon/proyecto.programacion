@@ -47,25 +47,15 @@ componentDidMount(){
   })
     .catch((e)=> console.log(e))
   }
-
-  actualizarBusqueda (evento) {
-    this.setState ({search: evento.target.value.substr(0,20)});
-  }
-
-  filtrarTarjeta (nombreUsuario) { /* en nombreUsuario tendria que ingresar lo que filtro el usuario */  
-    const contactosFiltrados = this.state.arrayTarjeta.filter (
-      (tarjeta) => {
-        return tarjeta.name.first.toLowerCase().indexOf(this.state.search) !== -1; 
-      })
-      console.log(contactosFiltrados)
-  /*  const contactosFiltrados = this.state.arrayTarjeta.filter(function(tarjeta) {
-      return  tarjeta.name.first === nombreUsuario/*aca tendria que ir la operacion de comparacion*/
-  /*  }) 
-    this.setState ({
-          arrayTarjeta: contactosFiltrados
+  
+  filtrarTarjetas(nombreUsuarios) {
+    let nombresFiltrados = this.state.arrayTarjeta.filter ((usuario) => {
+      return usuario.name.first.toLowerCase() === nombreUsuarios.toLowerCase()
     })
-    
-    console.log(contactosFiltrados) */ 
+    this.setState ({
+      arrayTarjeta: nombresFiltrados
+    })
+    console.log(nombresFiltrados);
   }
 
   render(){
@@ -96,9 +86,11 @@ componentDidMount(){
 
               <div className = "filtrarTarjetas" style={{width: "100%"}}> 
                  <input type="text" 
-                 className="filtroUsuario" placeholder="Buscar... " 
-                 value = {this.state.search}
-                 onChange = {this.actualizarBusqueda.bind(this)}/>
+                 className="nombreUsuario" placeholder="Insertar nombre de usuarios"/> 
+                 <button onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                  Buscar 
+                 </button>
+                
               </div>
               </div>
 
