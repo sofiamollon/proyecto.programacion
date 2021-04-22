@@ -56,8 +56,8 @@ componentDidMount(){
     })
     console.log(nombresFiltrados);
   }
-
-  ordenarTarjetas(){
+  
+  ordenAsc(){
     let ordenAsc = this.state.arrayTarjeta.sort(function (a, b) {
       if (a.name.first > b.name.first) {
         return 1;
@@ -68,7 +68,21 @@ componentDidMount(){
     });
     this.setState({
       arrayTarjeta: ordenAsc});
+  };
+  
+  ordenDes(){
+    let ordenDes = this.state.arrayTarjeta.sort(function (a, b) {
+      if (a.name.first < b.name.first) {
+        return 1;
+      }if (a.name.first > b.name.first) {
+        return -1;
+      }
+      return 0;
+    });
+    this.setState({
+      arrayTarjeta: ordenDes});
   }
+ 
 
   render(){
     return (
@@ -80,6 +94,24 @@ componentDidMount(){
         <Header/>
           <div className='container mx-auto'>
 
+            
+              <div className="agregarTarjetas">
+                <input type="number" className="cantidadTarjetas"  placeholder="numero de usuarios"/>
+                <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
+                  Añadir
+                </button>
+              <div/>
+              <div className="dropdown">
+                <button className="dropbtn">
+                  Ordenar por:
+                </button>
+                <div className="dropdown-content">
+                  <button onClick={this.ordenAsc.bind(this)}>Nombre ascendente</button>
+                  <button onClick={this.ordenDes.bind(this)}>Nombre descendente</button>
+                </div>
+              </div>
+            
+
             <div className="my-5 flex flex-wrap -mx-2">
 
               {this.state.arrayTarjeta.map((item) => {
@@ -89,13 +121,6 @@ componentDidMount(){
                 onDelete = {this.borrarTarjeta.bind(this)}/>
               })}
 
-              <div className="agregarTarjetas" style={{width:"100%"}}>
-                <input type="number" className="cantidadTarjetas"  placeholder="Insertar cantidad de usuarios"/>
-                <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
-                  Añadir
-                </button>
-                <br/>
-
                 <div className = "filtrarTarjetas" style={{width: "100%"}}> 
                   <input type="text" className="nombreUsuario" placeholder="Insertar nombre de usuarios"/> 
                   <button onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
@@ -104,7 +129,6 @@ componentDidMount(){
                 
                 </div>
               </div>
-              <button style={{width:"20%", backgroundColor:"white"}} onClick={this.ordenarTarjetas.bind(this)}>orden ascendente por nombre</button>
 
               </div>
 
