@@ -37,14 +37,18 @@ componentDidMount(){
     console.log(nuevaTarjeta);
   };
 
-  agregarTarjetas(cantidadTarjetas){
-    fetch("https://randomuser.me/api/?results=" + cantidadTarjetas)
-    .then(r => r.json())
-    .then((resultado)=>{
-    this.setState({
-      arrayTarjeta: this.state.arrayTarjeta.concat(resultado.results)});
-  })
-    .catch((e)=> console.log(e))
+  agregarTarjetas(numero){
+    if ((numero <= 15 && numero > 0)) {
+      fetch("https://randomuser.me/api/?results=" + numero)
+      .then(r => r.json())
+      .then((resultado)=>{
+      this.setState({
+        arrayTarjeta: this.state.arrayTarjeta.concat(resultado.results)});
+      })
+      .catch((e)=> console.log(e))
+    }else{
+      alert("Por favor, inserta un valor entre 1 y 10.")
+    }  
   }
   
   filtrarTarjetas(nombreUsuarios) {
@@ -109,8 +113,8 @@ componentDidMount(){
                   <button onClick={this.ordenAsc.bind(this)}>Nombre ascendente</button>
                   <button onClick={this.ordenDes.bind(this)}>Nombre descendente</button>
                 </div>
-              </div>
             
+              </div>           
 
             <div className="my-5 flex flex-wrap -mx-2">
 
