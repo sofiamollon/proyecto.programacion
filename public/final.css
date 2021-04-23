@@ -184469,4 +184469,28 @@ img {
   display: block;
 }
 
+.cantidadTarjetas{
+  border-radius: 9px;
+  border-color: black;
+  padding: 11px;
+  margin-top: 11px;
+}
 
+.botonAgregar{
+  padding-left: 15px;
+  text-decoration: underline;
+  padding-right: 15px;
+}
+
+.nombreUsuario{
+  border-radius: 9px;
+  border-color: black;
+  padding: 11px;
+  margin-top: 11px;
+}
+
+.botonBuscar{
+  padding-left: 15px;
+  text-decoration: underline;
+  padding-right: 15px;
+}

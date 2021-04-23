@@ -96,8 +96,8 @@ componentDidMount(){
 
             
               <div className="agregarTarjetas">
-                <input type="number" className="cantidadTarjetas"  placeholder="numero de usuarios"/>
-                <button onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
+                <input type="number" className="cantidadTarjetas"  placeholder="Cantidad de usuarios"/>
+                <button className="botonAgregar" onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
                   Añadir
                 </button>
               <div/>
@@ -122,8 +122,8 @@ componentDidMount(){
               })}
 
                 <div className = "filtrarTarjetas" style={{width: "100%"}}> 
-                  <input type="text" className="nombreUsuario" placeholder="Insertar nombre de usuarios"/> 
-                  <button onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                  <input type="text" className="nombreUsuario" placeholder="Nombre de usuario"/> 
+                  <button className="botonBuscar" onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
                     Buscar 
                   </button>
                 
