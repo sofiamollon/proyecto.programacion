@@ -53,7 +53,9 @@ componentDidMount(){
   
   filtrarTarjetas(nombreUsuarios) {
     let nombresFiltrados = this.state.arrayTarjeta.filter ((usuario) => {
-      return usuario.name.first.toLowerCase() === nombreUsuarios.toLowerCase()
+      return usuario.name.first.toLowerCase() === nombreUsuarios.toLowerCase() ||
+      usuario.name.last.toLowerCase() === nombreUsuarios.toLowerCase() ||
+      usuario.dob.age === nombreUsuarios
     })
     this.setState ({
       arrayTarjeta: nombresFiltrados
@@ -92,59 +94,61 @@ componentDidMount(){
     return (
       <body>
        
-      <div className="wrapper">
-      
-        <div className="App">
-        <Header/>
-          <div className='container mx-auto'>
+        <div className="wrapper">
+        
+          <div className="App">
+          <Header/>
+            <div className='container mx-auto'>
 
-            
-              <div className="agregarTarjetas">
-                <input type="number" className="cantidadTarjetas"  placeholder="Cantidad de usuarios"/>
-                <button className="botonAgregar" onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
-                  Añadir
-                </button>
-              <div/>
-              <div className="dropdown">
-                <button className="dropbtn">
-                  Ordenar por:
-                </button>
-                <div className="dropdown-content">
-                  <button onClick={this.ordenAsc.bind(this)}>Nombre ascendente</button>
-                  <button onClick={this.ordenDes.bind(this)}>Nombre descendente</button>
-                </div>
-            
-              </div>           
-
-            <div className="my-5 flex flex-wrap -mx-2">
-
-              {this.state.arrayTarjeta.map((item) => {
-                return <Card 
-                key = {item.id} 
-                elemento = {item} 
-                onDelete = {this.borrarTarjeta.bind(this)}/>
-              })}
-
-                <div className = "filtrarTarjetas" style={{width: "100%"}}> 
-                  <input type="text" className="nombreUsuario" placeholder="Nombre de usuario"/> 
-                  <button className="botonBuscar" onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
-                    Buscar 
+              
+                <div className="agregarTarjetas">
+                  <input type="number" className="cantidadTarjetas"  placeholder="Cantidad de usuarios"/>
+                  <button className="botonAgregar" onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
+                    Añadir
                   </button>
-                
+                <div/>
+                <div className="dropdown">
+                  <button className="dropbtn">
+                    Ordenar por:
+                  </button>
+                  <div className="dropdown-content">
+                    <button onClick={this.ordenAsc.bind(this)}>Nombre ascendente</button>
+                    <button onClick={this.ordenDes.bind(this)}>Nombre descendente</button>
+                  </div>
+              
+                </div>           
+
+              <div className="my-5 flex flex-wrap -mx-2">
+
+                {this.state.arrayTarjeta.map((item, idx) => {
+                  return <Card 
+                  key = {idx} 
+                  elemento = {item} 
+                  onDelete = {this.borrarTarjeta.bind(this)}/>
+                })}
+
+                  <div className = "filtrarTarjetas" style={{width: "100%"}}> 
+                    Texto a buscar:
+                    <input type="text" className="nombreUsuario" onChange = {(evento) => this.setState({search: evento.target.value})}/> 
+                    
+                    <button className="botonBuscar" onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                      Buscar 
+                    </button> 
+
+                  </div>
                 </div>
-              </div>
+
+                </div>
 
               </div>
+              
+              <div className="footer">  
+                <Footer/>
 
+              </div>          
             </div>
-            
-            <div className="footer">  
-              <Footer/>
 
-            </div>          
           </div>
-
-        </div>
         
       
       </body>

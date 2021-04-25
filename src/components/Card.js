@@ -6,7 +6,7 @@ import React, { Component } from "react";
 
             return (
                 <React.Fragment>  
-                <ul class="cards flip-card"> 
+                <ul className="cards flip-card"> 
                     <li className=" flip-card-inner">
                         <div className='card flip-card-front' >     
                             <div className="px-6 py-4">
