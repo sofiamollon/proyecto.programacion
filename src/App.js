@@ -55,7 +55,7 @@ componentDidMount(){
     let nombresFiltrados = this.state.arrayTarjeta.filter ((usuario) => {
       return usuario.name.first.toLowerCase() === nombreUsuarios.toLowerCase() ||
       usuario.name.last.toLowerCase() === nombreUsuarios.toLowerCase() ||
-      usuario.dob.age === nombreUsuarios
+      parseInt(usuario.dob.age) === parseInt(nombreUsuarios)
     })
     this.setState ({
       arrayTarjeta: nombresFiltrados
