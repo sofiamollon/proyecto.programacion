@@ -9,22 +9,20 @@ export default class App extends Component {
     super();
     this.state = {
       arrayTarjeta: [],
-      search: " ",
     }
   };
 
-componentDidMount(){
-  fetch("https://randomuser.me/api/?results=21")
-  .then(r => r.json())
-  .then((resultado)=>{
-    //console.log(resultado)
-    this.setState({
-      arrayTarjeta: resultado.results});
-    
-  })
-  .catch((e)=> console.log(e))
-}
-
+  componentDidMount(){
+    fetch("https://randomuser.me/api/?results=21")
+    .then(r => r.json())
+    .then((resultado)=>{
+      //console.log(resultado)
+      this.setState({
+        arrayTarjeta: resultado.results});
+      
+    })
+    .catch((e)=> console.log(e))
+  }
 
   borrarTarjeta(idTarjeta){
     let nuevaTarjeta = this.state.arrayTarjeta.filter((tarjeta) => {
@@ -46,7 +44,7 @@ componentDidMount(){
   }
 
   agregarTarjetas(numero){
-    if ((numero <= 15 && numero > 0)) {
+    if ((numero <= 10 && numero > 0)) {
       fetch("https://randomuser.me/api/?results=" + numero)
       .then(r => r.json())
       .then((resultado)=>{
@@ -125,27 +123,27 @@ componentDidMount(){
   ordenDesRegistro(){
     let ordenDesRegistro = this.state.arrayTarjeta.sort((a, b) => (a.registered.date < b.registered.date)? 1: -1)
     this.setState({arrayTarjeta: ordenDesRegistro});
-  }
-
-  
+  } 
 
   render(){
     return (
-      <body>
-       
-        <div className="wrapper">
-        
+      <body> 
+        <div className="wrapper">  
           <div className="App">
-          <Header/>
+
+            <Header/>
+
             <div className='container mx-auto'>
 
-              
-                <div className="agregarTarjetas">
-                  <input type="number" className="cantidadTarjetas"  placeholder="Cantidad de usuarios"/>
-                  <button className="botonAgregar" onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
-                    Añadir
-                  </button>
-                <div/>
+              <div className = "ordenarFiltrar">              
+                <div className = "filtrarTarjetas"> 
+                  Texto a buscar: 
+                  <input type="text" className="nombreUsuario" onChange = {(evento) => this.setState({search: evento.target.value})}/> 
+                  <button className="botonBuscar" onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                    Buscar 
+                  </button> 
+                </div>
+                  
                 <div className="dropdown">
                   <button className="dropbtn">
                     Ordenar por:
@@ -160,11 +158,10 @@ componentDidMount(){
                     <button onClick={this.ordenAscRegistro.bind(this)}> Registro ascendente</button>
                     <button onClick={this.ordenDesRegistro.bind(this)}> Registro descendente</button>
                   </div>
-              
-                </div>           
+                </div>  
+              </div>         
 
               <div className="my-5 flex flex-wrap -mx-2">
-
                 {this.state.arrayTarjeta.map((item, idx) => {
                   return <Card 
                   key = {idx} 
@@ -172,31 +169,26 @@ componentDidMount(){
                   onDelete = {this.borrarTarjeta.bind(this)}
                   formatoFecha = {this.formatoFecha.bind(this)}/>
                 })}
+              </div>      
 
-                  <div className = "filtrarTarjetas" style={{width: "100%"}}> 
-                    Texto a buscar:
-                    <input type="text" className="nombreUsuario" onChange = {(evento) => this.setState({search: evento.target.value})}/> 
-                    
-                    <button className="botonBuscar" onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
-                      Buscar 
-                    </button> 
-
-                  </div>
-                </div>
-
-                </div>
-
+              <div className="agregarTarjetas">
+                <label>¿Queres agregar más contactos?</label>
+                <br></br>
+                <input type="number" className="cantidadTarjetas"  placeholder="Cantidad de usuarios"/>
+                <button className="botonAgregar" onClick={() => this.agregarTarjetas(document.querySelector('.cantidadTarjetas').value)}>
+                  Añadir
+                </button>
+              <div/>
+                
               </div>
+            </div>
               
-              <div className="footer">  
-                <Footer/>
-
-              </div>          
+            <div className="footer">  
+              <Footer/>
             </div>
 
           </div>
-        
-      
+        </div>
       </body>
     );
   }
