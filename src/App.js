@@ -3,7 +3,6 @@ import Footer from "./components/Footer"
 import Card from "./components/Card"
 import React, {Component} from "react";
 
-
 export default class App extends Component {
 
   constructor(){
@@ -36,6 +35,15 @@ componentDidMount(){
     })
     console.log(nuevaTarjeta);
   };
+
+  formatoFecha(){
+    let fechaNueva = this.state.arrayTarjeta.moment((fecha) => {
+      return fecha.toLocaleDateString()
+    })
+    this.setState({
+      arrayTarjeta: fechaNueva
+    })
+  }
 
   agregarTarjetas(numero){
     if ((numero <= 15 && numero > 0)) {
@@ -88,7 +96,38 @@ componentDidMount(){
     this.setState({
       arrayTarjeta: ordenDes});
   }
- 
+
+  ordenAscApellido(){
+    let ordenAscApellido = this.state.arrayTarjeta.sort((a, b) => (a.name.last > b.name.last)? 1: -1)
+    this.setState({arrayTarjeta: ordenAscApellido});
+  }
+
+  ordenDesApellido(){
+    let ordenDesApellido = this.state.arrayTarjeta.sort((a, b) => (a.name.last < b.name.last)? 1: -1)
+    this.setState({arrayTarjeta: ordenDesApellido});
+  }
+
+  ordenAscEdad(){
+    let ordenAscEdad = this.state.arrayTarjeta.sort((a, b) => (a.dob.age > b.dob.age)? 1: -1)
+    this.setState({arrayTarjeta: ordenAscEdad});
+  }
+
+  ordenDesEdad(){
+    let ordenDesEdad = this.state.arrayTarjeta.sort((a, b) => (a.dob.age < b.dob.age)? 1: -1)
+    this.setState({arrayTarjeta: ordenDesEdad});
+  }
+
+  ordenAscRegistro(){
+    let ordenAscRegistro = this.state.arrayTarjeta.sort((a, b) => (a.registered.date > b.registered.date)? 1: -1)
+    this.setState({arrayTarjeta: ordenAscRegistro});
+  }
+
+  ordenDesRegistro(){
+    let ordenDesRegistro = this.state.arrayTarjeta.sort((a, b) => (a.registered.date < b.registered.date)? 1: -1)
+    this.setState({arrayTarjeta: ordenDesRegistro});
+  }
+
+  
 
   render(){
     return (
@@ -114,6 +153,12 @@ componentDidMount(){
                   <div className="dropdown-content">
                     <button onClick={this.ordenAsc.bind(this)}>Nombre ascendente</button>
                     <button onClick={this.ordenDes.bind(this)}>Nombre descendente</button>
+                    <button onClick={this.ordenAscApellido.bind(this)}> Apellido ascendente</button>
+                    <button onClick={this.ordenDesApellido.bind(this)}> Apellido descendente</button>
+                    <button onClick={this.ordenAscEdad.bind(this)}> Edad ascendente</button>
+                    <button onClick={this.ordenDesEdad.bind(this)}> Edad descendente</button>
+                    <button onClick={this.ordenAscRegistro.bind(this)}> Registro ascendente</button>
+                    <button onClick={this.ordenDesRegistro.bind(this)}> Registro descendente</button>
                   </div>
               
                 </div>           
@@ -124,7 +169,8 @@ componentDidMount(){
                   return <Card 
                   key = {idx} 
                   elemento = {item} 
-                  onDelete = {this.borrarTarjeta.bind(this)}/>
+                  onDelete = {this.borrarTarjeta.bind(this)}
+                  formatoFecha = {this.formatoFecha.bind(this)}/>
                 })}
 
                   <div className = "filtrarTarjetas" style={{width: "100%"}}> 
