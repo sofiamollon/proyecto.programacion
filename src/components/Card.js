@@ -11,10 +11,10 @@ import React, { Component } from "react";
                         <div className='card flip-card-front' >     
                             <div className="px-6 py-4">
                                 <div className="font-bold text-xl mb-2">
-                                    <h2>Apellido: {this.props.elemento.name.last}</h2> 
+                                    <h2> Apellido: {this.props.elemento.name.last}</h2> 
                                     <h2> Nombre: {this.props.elemento.name.first}</h2>
                                     <h3> Email: {this.props.elemento.email}</h3>
-                                    <h4> Fecha de nacimiento: {this.props.elemento.dob.date} </h4> <h1>({this.props.elemento.dob.age})</h1>                                  
+                                    <h4> Fecha de nacimiento: {this.props.elemento.dob.date.substring(0, 10)} ({this.props.elemento.dob.age} años) </h4>  <br/>                                 
                                     <img src={this.props.elemento.picture.large} alt="" className='w-full' />
                                 </div>                                
                             </div>
@@ -31,7 +31,7 @@ import React, { Component } from "react";
                             <p>Ciudad/Estado: {this.props.elemento.location.city}/{this.props.elemento.location.state} </p>
                             <p>País: {this.props.elemento.location.country}</p>
                             <p>Código postal: {this.props.elemento.location.postcode}</p>
-                            <p>Fecha de Registro: {this.props.elemento.registered.date}</p>
+                            <p>Fecha de Registro: {this.props.elemento.registered.date.substring(0, 10)}</p>
                             <p>Teléfono: {this.props.elemento.phone}</p>
                         </div>                       
                     </li>
