@@ -530,7 +530,6 @@ iframe,
 embed,
 object {
   display: block;
-  vertical-align: middle;
 }
 
 /**
@@ -551,12 +550,6 @@ video {
 }
 
 /*  INICIO CSS TARJETAS */ 
-@gray-darker: #444444;
-@gray-dark:   #696969;
-@gray:        #999999;
-@gray-light:  #cccccc;
-@gray-lighter:#ececec;
-@gray-lightest:lighten(@gray-lighter,4%);
 
 *,
 *::before,
@@ -569,16 +562,13 @@ html {
 }
 
 body {
-  color: @gray;
   font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   letter-spacing: 0;
-  padding: 1rem;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -moz-font-feature-settings: "liga" on;
 }
 
 img {
@@ -589,9 +579,7 @@ img {
 
 .btn {
   background-color: white;
-  border: 1px solid @gray-light;
-  //border-radius: 1rem;
-  color: @gray-dark;
+  border-radius: 1rem;
   padding: 0.5rem;
   text-transform: lowercase;
 }
@@ -627,11 +615,6 @@ img {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  &:hover {
-    .card__image {
-      filter: contrast(100%);
-    }
-  }
 }
 
 .card__content {
@@ -648,15 +631,10 @@ img {
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   filter: contrast(70%);
-  //filter: saturate(180%);
   overflow: hidden;
   position: relative;
   transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);;
-  &::before {
-    content: "";
-	  display: block;
-    padding-top: 56.25%; // 16:9 aspect ratio
-  }
+  
   @media(min-width: 40rem) {
     &::before {
       padding-top: 66.6%; // 3:2 aspect ratio
@@ -665,7 +643,6 @@ img {
 }
 
 .card__title {
-  color: @gray-dark;
   font-size: 1.25rem;
   font-weight: 300;
   letter-spacing: 2px;
@@ -695,12 +672,35 @@ img {
 /* FOOTER */
 
 .footer {
-
- background: rgba(31, 41, 55, var(--tw-bg-opacity));/* no me toma el color no se porque */
+ background-color: #33383c;
  width: 100%;  
- text-align: center;
  padding: 1em;
  align-self: flex-end; 
+ height: 200px
+}
+
+.footer div{
+  overflow:hidden;
+  width: 65%;
+  margin: 0 auto;
+  margin-top: 4%;
+}
+
+.footer img{
+  width: 20%;
+  float: left;
+}
+
+.logo-udesa{
+  margin-top: 1%;
+}
+
+.footer h3{
+  float: left;
+  color: white;
+  margin-left: 10.5%;
+  margin-right: 10.5%;
+  margin-top:1%;
 }
 
 .wrapper {
@@ -709,13 +709,6 @@ img {
   height: 100%;
   margin: 0 auto -100px;
 }
-
-.footer, .push {
-  height: 100px;
-  
-}
-
-
 
 
 /* FIN FOOTER */
@@ -184427,11 +184420,16 @@ img {
   border-radius: 20px;
 }
 
-.dropdown {
+.ordenarFiltrar{
   overflow: hidden;
   margin-top: 2%;
   margin-bottom: 2%;
-  margin-left: 87%
+  margin-left: 1%
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
 }
 
 .dropbtn{
@@ -184476,6 +184474,19 @@ img {
   margin-top: 11px;
 }
 
+.filtrarTarjetas{
+  float: left;
+  margin-right: 52%;
+  width: 35%
+}
+
+.agregarTarjetas{
+  width: 21%;
+  margin: 0 auto;
+  margin-top: 5%;
+  margin-bottom: 7%
+}
+
 .botonAgregar{
   padding-left: 15px;
   text-decoration: underline;
@@ -184487,6 +184498,7 @@ img {
   border-color: black;
   padding: 11px;
   margin-top: 11px;
+  margin-left: 1%;
 }
 
 .botonBuscar{
