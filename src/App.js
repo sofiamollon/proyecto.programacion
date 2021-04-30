@@ -133,10 +133,7 @@ visualizacionVertical () {
   })
 }    
 
-
-
   render(){
-
 
     return (
       <body> 
@@ -179,32 +176,7 @@ visualizacionVertical () {
                   key = {idx} 
                   elemento = {item} 
                   onDelete = {this.borrarTarjeta.bind(this)}/>
-                })}
-
-                  <div className = "filtrarTarjetas" style={{width: "100%"}}> 
-                    Texto a buscar:
-                    <input type="text" className="nombreUsuario"/> 
-                    
-                    <button className="botonBuscar" onClick = {() => this.filtrarTarjetas.bind(this)}> 
-                      Buscar 
-                    </button> 
-
-                  </div>
-
-                  <div className="dropdown">
-                  <button className="dropbtn">
-                    Cambiar Orden
-                    </button>
-                  <div className="dropdown-content">
-                    <button onClick={() => this.visualizacionHorizontal.bind(this)}>Horizontal </button>
-                    <button onClick={() => this.visualizacionVertical.bind(this)} > Vertical </button>
-                  </div>
-                  
-                 
-                  </div>
-
-                  
-
+                })}    
               </div>
 
                 </div>
@@ -225,7 +197,6 @@ visualizacionVertical () {
               
               <div className="footer">  
                 <Footer/>
-
               </div> 
       </body>
     );
