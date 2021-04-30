@@ -35,15 +35,6 @@ export default class App extends Component {
     console.log(nuevaTarjeta);
   };
 
-  formatoFecha(){
-    let fechaNueva = this.state.arrayTarjeta.moment((fecha) => {
-      return fecha.toLocaleDateString()
-    })
-    this.setState({
-      arrayTarjeta: fechaNueva
-    })
-  }
-
   agregarTarjetas(numero){
     if ((numero <= 10 && numero > 0)) {
       fetch("https://randomuser.me/api/?results=" + numero)
@@ -186,8 +177,7 @@ visualizacionVertical () {
                   return <Card 
                   key = {idx} 
                   elemento = {item} 
-                  onDelete = {this.borrarTarjeta.bind(this)}
-                  formatoFecha = {this.formatoFecha.bind(this)}/>
+                  onDelete = {this.borrarTarjeta.bind(this)}/>
                 })}
 
                   <div className = "filtrarTarjetas" style={{width: "100%"}}> 
