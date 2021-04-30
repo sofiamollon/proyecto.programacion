@@ -3,6 +3,7 @@ import Footer from "./components/Footer"
 import Card from "./components/Card"
 import React, {Component} from "react";
 
+
 export default class App extends Component {
 
   constructor(){
@@ -127,9 +128,26 @@ componentDidMount(){
     this.setState({arrayTarjeta: ordenDesRegistro});
   }
 
-  
+
+ visualizacionHorizontal () {
+  let vistaHorizontal = document.getElementById('horizontal').className = "none";
+    this.setState ({
+      VistaHorizontal: vistaHorizontal
+    })
+}  
+
+visualizacionVertical () {
+  let vistaVertical = document.getElementById('vertical').className = "block";
+  this.setState ({
+    VistaVertical: vistaVertical
+  })
+}    
+
+
 
   render(){
+
+
     return (
       <body>
        
@@ -138,7 +156,6 @@ componentDidMount(){
           <div className="App">
           <Header/>
             <div className='container mx-auto'>
-
               
                 <div className="agregarTarjetas">
                   <input type="number" className="cantidadTarjetas"  placeholder="Cantidad de usuarios"/>
@@ -182,6 +199,21 @@ componentDidMount(){
                     </button> 
 
                   </div>
+
+                  <div className="dropdown">
+                  <button className="dropbtn">
+                    Cambiar Orden
+                    </button>
+                  <div className="dropdown-content">
+                    <button onClick={this.visualizacionHorizontal.bind(this)}>Horizontal </button>
+                    <button  onClick={this.visualizacionVertical.bind(this)} > Vertical </button>
+                  </div>
+                  
+                 
+                  </div>
+
+                  
+
                 </div>
 
                 </div>
@@ -191,7 +223,8 @@ componentDidMount(){
               <div className="footer">  
                 <Footer/>
 
-              </div>          
+              </div> 
+                
             </div>
 
           </div>

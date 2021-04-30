@@ -14857,7 +14857,7 @@ img {
   padding: 0.875rem;
 }
 
-.py-0 {
+./-0 {
   padding-top: 0px;
   padding-bottom: 0px;
 }
@@ -184494,3 +184494,14 @@ img {
   text-decoration: underline;
   padding-right: 15px;
 }
+
+.none {
+  display: flex;
+  width: 600px;
+  height: auto;
+  border-radius: 2px;
+  justify-content: center;
+  background-color: red;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+}
+

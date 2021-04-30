@@ -9,7 +9,7 @@ import React, { Component } from "react";
                 <ul className="cards flip-card"> 
                     <li className=" flip-card-inner">
                         <div className='card flip-card-front' >     
-                            <div className="px-6 py-4">
+                            <div className="px-6 py-4" id="horizontal">
                                 <div className="font-bold text-xl mb-2">
                                     <h2> Apellido: {this.props.elemento.name.last}</h2> 
                                     <h2> Nombre: {this.props.elemento.name.first}</h2>
@@ -43,3 +43,4 @@ import React, { Component } from "react";
     }
 
 export default Card;
+
