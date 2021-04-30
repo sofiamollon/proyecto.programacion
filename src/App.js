@@ -185,7 +185,7 @@ visualizacionVertical () {
                     Texto a buscar:
                     <input type="text" className="nombreUsuario"/> 
                     
-                    <button className="botonBuscar" onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
+                    <button className="botonBuscar" onClick = {() => this.filtrarTarjetas.bind(this)}> 
                       Buscar 
                     </button> 
 
