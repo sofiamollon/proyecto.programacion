@@ -147,7 +147,7 @@ visualizacionVertical () {
               <div className = "ordenarFiltrar">              
                 <div className = "filtrarTarjetas"> 
                   Texto a buscar: 
-                  <input type="text" className="nombreUsuario" onChange = {(evento) => this.setState({search: evento.target.value})}/> 
+                  <input type="text" className="nombreUsuario"/> 
                   <button className="botonBuscar" onClick = {() => this.filtrarTarjetas(document.querySelector('.nombreUsuario').value)}> 
                     Buscar 
                   </button> 
