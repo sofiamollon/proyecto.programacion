@@ -128,16 +128,16 @@ export default class App extends Component {
 
 
  visualizacionHorizontal () {
-  let vistaHorizontal = document.getElementById('horizontal').className = "none";
+  let vistaHorizontal = document.getElementsByClassName("cards flip-card");
     this.setState ({
-      VistaHorizontal: vistaHorizontal
+      arrayTarjeta: vistaHorizontal
     })
 }  
 
 visualizacionVertical () {
-  let vistaVertical = document.getElementById('vertical').className = "block";
+  let vistaVertical = document.getElementsByClassName("cards flip-card");
   this.setState ({
-    VistaVertical: vistaVertical
+    arrayTarjeta: vistaVertical
   })
 }    
 
@@ -205,8 +205,8 @@ visualizacionVertical () {
                     Cambiar Orden
                     </button>
                   <div className="dropdown-content">
-                    <button onClick={this.visualizacionHorizontal.bind(this)}>Horizontal </button>
-                    <button  onClick={this.visualizacionVertical.bind(this)} > Vertical </button>
+                    <button onClick={() => this.visualizacionHorizontal.bind(this)}>Horizontal </button>
+                    <button onClick={() => this.visualizacionVertical.bind(this)} > Vertical </button>
                   </div>
                   
                  
@@ -214,7 +214,7 @@ visualizacionVertical () {
 
                   
 
-                </div>
+              </div>
 
                 </div>
 
@@ -236,11 +236,6 @@ visualizacionVertical () {
                 <Footer/>
 
               </div> 
-                
-            </div>
-
-          </div>
-        </div>
       </body>
     );
   }
